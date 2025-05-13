@@ -1,72 +1,88 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <title>تحليل أمان الإطار الفولاذي</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>تحليل أمان الإطار الفولاذي</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>تحليل أمان الإطار الفولاذي (Built-Up)</h1>
-    <form id="frameForm">
-        <fieldset>
-            <legend>أبعاد الرفتر الأول (mm)</legend>
-            <label>bf_r1: <input type="number" id="bf_r1" required></label>
-            <label>tf_r1: <input type="number" id="tf_r1" required></label>
-            <label>tw_r1: <input type="number" id="tw_r1" required></label>
-            <label>hw_r1: <input type="number" id="hw_r1" required></label>
-        </fieldset>
+  <h1>تحليل أمان الإطار الفولاذي (Built-Up)</h1>
+  <form id="frameForm">
+    <fieldset>
+      <legend>أبعاد الرافتـر الأيسر (mm)</legend>
+      <label>bf_r1: <input type="number" id="bf_r1" required></label>
+      <label>tf_r1: <input type="number" id="tf_r1" required></label>
+      <label>tw_r1: <input type="number" id="tw_r1" required></label>
+      <label>hw_r1: <input type="number" id="hw_r1" required></label>
+    </fieldset>
 
-        <fieldset>
-            <legend>أبعاد الرفتر الثاني (mm)</legend>
-            <label>bf_r2: <input type="number" id="bf_r2" required></label>
-            <label>tf_r2: <input type="number" id="tf_r2" required></label>
-            <label>tw_r2: <input type="number" id="tw_r2" required></label>
-            <label>hw_r2: <input type="number" id="hw_r2" required></label>
-        </fieldset>
+    <fieldset>
+      <legend>أبعاد الرافتـر الأيمن (mm)</legend>
+      <label>bf_r2: <input type="number" id="bf_r2" required></label>
+      <label>tf_r2: <input type="number" id="tf_r2" required></label>
+      <label>tw_r2: <input type="number" id="tw_r2" required></label>
+      <label>hw_r2: <input type="number" id="hw_r2" required></label>
+    </fieldset>
 
-        <fieldset>
-            <legend>أبعاد العمود الأول (mm)</legend>
-            <label>bf_c1: <input type="number" id="bf_c1" required></label>
-            <label>tf_c1: <input type="number" id="tf_c1" required></label>
-            <label>tw_c1: <input type="number" id="tw_c1" required></label>
-            <label>hw_c1: <input type="number" id="hw_c1" required></label>
-        </fieldset>
+    <fieldset>
+      <legend>أبعاد العمود الأيسر (mm)</legend>
+      <label>bf_c1: <input type="number" id="bf_c1" required></label>
+      <label>tf_c1: <input type="number" id="tf_c1" required></label>
+      <label>tw_c1: <input type="number" id="tw_c1" required></label>
+      <label>hw_c1: <input type="number" id="hw_c1" required></label>
+    </fieldset>
 
-        <fieldset>
-            <legend>أبعاد العمود الثاني (mm)</legend>
-            <label>bf_c2: <input type="number" id="bf_c2" required></label>
-            <label>tf_c2: <input type="number" id="tf_c2" required></label>
-            <label>tw_c2: <input type="number" id="tw_c2" required></label>
-            <label>hw_c2: <input type="number" id="hw_c2" required></label>
-        </fieldset>
+    <fieldset>
+      <legend>أبعاد العمود الأيمن (mm)</legend>
+      <label>bf_c2: <input type="number" id="bf_c2" required></label>
+      <label>tf_c2: <input type="number" id="tf_c2" required></label>
+      <label>tw_c2: <input type="number" id="tw_c2" required></label>
+      <label>hw_c2: <input type="number" id="hw_c2" required></label>
+    </fieldset>
 
-        <fieldset>
-            <legend>البيانات العامة</legend>
-            <label>ارتفاع العمود H (م): <input type="number" id="H" required></label>
-            <label>أقصى ارتفاع H_total (م): <input type="number" id="H_total" required></label>
-            <label>السبان span (م): <input type="number" id="span" required></label>
-            <label>المسافة بين الإطارات spacing (م): <input type="number" id="spacing" required></label>
-            <label>الحمل على السقف (kN/m²): <input type="number" id="load_area" required></label>
-            <label>fy (MPa): <input type="number" id="fy" value="355" required></label>
-            <label>E (MPa): <input type="number" id="E" value="210000" required readonly></label>
-            <label>معامل الأمان FS: 
-                <select id="FS">
-                    <option value="1.5">1.5</option>
-                    <option value="2">2</option>
-                </select>
-            </label>
-            <label>معامل الانبعاج K: <input type="number" id="K" value="1.0" required></label>
-            <label>مكان التثبيت:
-                <select id="fix_location">
-                    <option value="end">من الأطراف</option>
-                    <option value="side">من الجوانب</option>
-                    <option value="corner">من زاوية العمود</option>
-                </select>
-            </label>
-        </fieldset>
-        <button type="submit">تحليل</button>
-    </form>
-    <div id="results"></div>
-    <script src="script.js"></script>
+    <fieldset>
+      <legend>عمود وسط؟</legend>
+      <label>
+        <select id="has_middle_column">
+          <option value="no">لا</option>
+          <option value="yes">نعم</option>
+        </select>
+      </label>
+      <div id="middleColumnInputs" style="display: none;">
+        <label>bf_cm: <input type="number" id="bf_cm"></label>
+        <label>tf_cm: <input type="number" id="tf_cm"></label>
+        <label>tw_cm: <input type="number" id="tw_cm"></label>
+        <label>hw_cm: <input type="number" id="hw_cm"></label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>البيانات العامة</legend>
+      <label>الارتفاع H (م): <input type="number" id="H" required></label>
+      <label>الارتفاع الكلي H_total (م): <input type="number" id="H_total" required></label>
+      <label>السبان span (م): <input type="number" id="span" required></label>
+      <label>المسافة بين الإطارات spacing (م): <input type="number" id="spacing" required></label>
+      <label>الحمل على السقف (كجم/م²): <input type="number" id="load_area" required></label>
+      <label>fy (MPa): <input type="number" id="fy" value="355" required></label>
+      <label>معامل الأمان FS:
+        <select id="FS">
+          <option value="1.5">1.5</option>
+          <option value="2">2</option>
+        </select>
+      </label>
+      <label>نقطة تثبيت العمود:
+        <select id="K">
+          <option value="0.5">مثبت من الطرفين</option>
+          <option value="1.0">مثبت من طرف وحر من الطرف الآخر</option>
+          <option value="2.0">حر من الطرفين</option>
+        </select>
+      </label>
+    </fieldset>
+
+    <button type="submit">تحليل</button>
+  </form>
+
+  <div id="results"></div>
+  <script src="script.js"></script>
 </body>
 </html>
